@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 98%;
+    --foreground: 66 40% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 66 40% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 66 40% 10%;
+    --primary: 66 70% 25%;
+    --primary-foreground: 40 30% 98%;
+    --secondary: 66 30% 94%;
+    --secondary-foreground: 66 70% 25%;
+    --muted: 66 20% 94%;
+    --muted-foreground: 66 20% 40%;
+    --accent: 66 50% 45%;
+    --accent-foreground: 40 30% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 30% 98%;
+    --border: 66 30% 88%;
+    --input: 66 30% 88%;
+    --ring: 66 70% 25%;
+    --radius: 1.5rem;
+  }
+ 
+  .dark {
+    --background: 220 10% 10%;
+    --foreground: 220 10% 95%;
+    --card: 220 10% 12%;
+    --card-foreground: 220 10% 95%;
+    --popover: 220 10% 12%;
+    --popover-foreground: 220 10% 95%;
+    --primary: 66 60% 50%;
+    --primary-foreground: 66 40% 5%;
+    --secondary: 220 10% 20%;
+    --secondary-foreground: 220 10% 95%;
+    --muted: 220 10% 18%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 66 50% 45%;
+    --accent-foreground: 220 10% 98%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 66 60% 55%;
+  }
+
+  * {
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Modern scrollbar styling for desktop */
+  @media (min-width: 768px) {
+    .overflow-y-auto::-webkit-scrollbar {
+      width: 12px;
+    }
+    
+    .overflow-y-auto::-webkit-scrollbar-track {
+      background: hsl(var(--background));
+    }
+    
+    .overflow-y-auto::-webkit-scrollbar-thumb {
+      background-color: hsl(var(--border));
+      border-radius: 10px;
+      border: 3px solid hsl(var(--background));
+    }
+
+    .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+      background-color: hsl(var(--accent));
+    }
+  }
+
+  /* Utility to hide scrollbar on specific elements */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  html, body {
+    @apply scroll-smooth;
+  }
+  
+  a, button, [role="button"] {
+    cursor: pointer;
+  }
+  
+  input, textarea, [contenteditable="true"] {
+      user-select: text;
+      -webkit-user-select: text;
+      cursor: text;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 dark:bg-black/70 backdrop-blur-xl border border-white/20 dark:border-white/10;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  .rotate-y-90 {
+    transform: rotateY(90deg);
+  }
+}
